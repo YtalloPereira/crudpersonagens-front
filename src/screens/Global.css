@@ -1,4 +1,15 @@
 .CadastroPersonagem, .CadastroHabilidade,.HomePage{
     text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
     background-image: url("/images/maxresdefault.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+button{
+    display: flex;
+    width: fit-content;
 }

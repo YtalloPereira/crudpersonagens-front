@@ -12,8 +12,7 @@ export default class App extends React.Component{
   render() {
     return (
       <div>
-        
-          <AppRoutes/>
+        <AppRoutes/>
       </div>
       // <div className="App">
       //   <header>Criação de Personagem</header>

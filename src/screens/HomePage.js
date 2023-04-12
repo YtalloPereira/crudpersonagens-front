@@ -17,17 +17,20 @@ import './HomePage.css';
 
     render(){
         return(
-            <div className="HomePage">
-                
-            <div className="d-grid gap-2">
-                <button className="btn btn-lg btn-primary" type="button" 
-                onClick={this.navigateToCrudPeronagem}>CRUD Personagem</button>
+            
+            <body className="home">
+              
+                    
+                <div className="d-grid gap-2">
+                    <button className="btn btn-lg btn-primary" type="button" 
+                    onClick={this.navigateToCrudPeronagem}>CRUD Personagem</button>
 
-                <button className="btn btn-lg btn-primary" type="button" 
-                onClick={this.navigateToCrudHabilidade}>CRUD Habilidade</button>
-            </div>
+                    <button className="btn btn-lg btn-primary" type="button" 
+                    onClick={this.navigateToCrudHabilidade}>CRUD Habilidade</button>
+                </div>
 
-            </div>
+               
+            </body>
         );
     }
 }
