@@ -7,10 +7,9 @@ import CasdastroHabilidade from "../screens/CadastroHabilidade";
 function AppRoutes(){
     return(
         <BrowserRouter>
-             <Route component = {HomePage} path = "/" exact/>
+            <Route component = {HomePage} path = "/" exact/>
             <Route component = {CadastroPersonagem} path = "/CadastroPersonagem" />
             <Route component = {CasdastroHabilidade} path = "/CadastroHabilidade" />
-           
         </BrowserRouter>
     );
 }

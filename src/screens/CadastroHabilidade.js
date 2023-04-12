@@ -49,7 +49,7 @@ class CadastroHabilidade extends React.Component{
 
     render(){
         return(
-            <div class="CadastroHabilidade">
+            <div className="CadastroHabilidade">
                 <header>Criação de Habilidade</header>
                 <div className="form-group">
                     <label className="col-form=laber mt-4" htmlFor="nome">Nome:</label>
