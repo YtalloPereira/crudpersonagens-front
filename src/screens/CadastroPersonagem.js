@@ -4,6 +4,12 @@ import {withRouter} from 'react-router-dom';
 import axios from 'axios';
 
 class CadastroPersonagem extends React.Component{
+
+    state = {
+      nome: '',
+      classe: '',
+      hp: ''
+    }
   
     create = () => {
       axios.post('http://localhost:8080/api/personagem',
@@ -23,13 +29,7 @@ class CadastroPersonagem extends React.Component{
       )
 
     }
-
-    state = {
-      nome: '',
-      classe: '',
-      hp: ''
-    }
-    
+ 
     cancel = () =>{
       this.props.history.push('/');
     }

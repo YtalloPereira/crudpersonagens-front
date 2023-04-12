@@ -1,13 +1,14 @@
 import React from "react";
 import './HomePage.css';
-import {withRouter} from 'react-router-dom';
 
-class HomePage extends React.Component{
+
+ export default class HomePage extends React.Component{
     
   
 
     navigateToCrudPeronagem = () => {
         this.props.history.push('/CadastroPersonagem');
+        
     }
     
     navigateToCrudHabilidade = () => {
@@ -16,8 +17,8 @@ class HomePage extends React.Component{
 
     render(){
         return(
-            <div>
-            
+            <div className="HomePage">
+                
             <div className="d-grid gap-2">
                 <button className="btn btn-lg btn-primary" type="button" 
                 onClick={this.navigateToCrudPeronagem}>CRUD Personagem</button>
@@ -30,4 +31,3 @@ class HomePage extends React.Component{
         );
     }
 }
-export default withRouter(HomePage);

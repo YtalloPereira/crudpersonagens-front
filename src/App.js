@@ -1,9 +1,10 @@
 
 import React from 'react';
-import CadastroPersonagem from './screens/CadastroPersonagem';
+
 import 'bootswatch/dist/lumen/bootstrap.css'
-import CasdastroHabilidade from './screens/CadastroHabilidade';
-import HomePage from './screens/HomePage';
+import './screens/Global.css';
+
+
 import AppRoutes from './main/Approutes';
 
 export default class App extends React.Component{
@@ -11,6 +12,7 @@ export default class App extends React.Component{
   render() {
     return (
       <div>
+        
           <AppRoutes/>
       </div>
       // <div className="App">

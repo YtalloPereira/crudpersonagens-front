@@ -1,10 +1,11 @@
 import React from "react";
 import './CadastroHabilidade.css';
 import {withRouter} from 'react-router-dom';
+import axios from "axios";
 
 class CadastroHabilidade extends React.Component{
 
-    stateHabilidade = {
+    state = {
         nome: '',
         cooldown: '',
         descricao: '',
@@ -24,9 +25,31 @@ class CadastroHabilidade extends React.Component{
         console.log(this.state.personagemId)
     }
 
+    create = () => {
+        axios.post('http://localhost:8080/api/habilidade',
+            {
+              nome: this.state.nome,
+              cooldown: this.state.cooldown,
+              descricao: this.state.descricao,
+              dano: this.state.dano,
+              personagemId: this.state.personagemId
+        }
+        ).then(response => 
+            {
+              console.log(response);
+              alert("Criado")
+            }
+        ).catch(error =>
+            {
+              console.log(error.response);
+            }
+        )
+  
+      }
+
     render(){
         return(
-            <div>
+            <div class="CadastroHabilidade">
                 <header>Criação de Habilidade</header>
                 <div className="form-group">
                     <label className="col-form=laber mt-4" htmlFor="nome">Nome:</label>
@@ -54,9 +77,16 @@ class CadastroHabilidade extends React.Component{
                     <input type="number" className="form-control" placeholder="dano" id="dano" 
                     value={this.dano} onChange={(e)=>{this.setState({dano: e.target.value})}}/>
                 </div>
+                
+                <br/>
+                <div className="form-group">
+                    <label className="col-form=laber mt-4" htmlFor="personagemId">Id do Personagem:</label>
+                    <input type="number" className="form-control" placeholder="id" id="personagemId" 
+                    value={this.personagemId} onChange={(e)=>{this.setState({personagemId: e.target.value})}}/>
+                </div>
 
                 <br/>
-                <button type="submit" class="btn btn-primary" onClick={this.mostrar}>Salvar</button>
+                <button type="submit" class="btn btn-primary" onClick={this.create}>Salvar</button>
                 <button type="button" class="btn btn-primary" onClick={this.cancel}>Cancelar</button>
                 
             </div>
