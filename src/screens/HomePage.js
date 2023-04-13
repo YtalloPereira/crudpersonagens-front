@@ -15,25 +15,36 @@ import './HomePage.css';
         this.props.history.push('/CadastroHabilidade');
     }
 
+    navigateToUpdatePersonagem = () => {
+        this.props.history.push('/AtualizarPersonagem');
+    }
+
+    navigateToUpdateHabilidade = () => {
+        this.props.history.push('/AtualizarHabilidade');
+    }
+
     render(){
         return(
             <div>
                 <header>CRUD Personagem</header>
-                    <div class="d-grid gap-2">
-                        <button class="btn btn-lg btn-primary" type="button" 
+                    <div className="d-grid gap-2">
+                        <button className="btn btn-lg btn-primary" type="button" 
                         onClick={this.navigateToCreatePersonagem}>Criar Personagem</button>
                         
-                        <button class="btn btn-lg btn-primary" type="button">Atualizar Personagem</button>
-                        <button class="btn btn-lg btn-primary" type="button">Deletar Personagem</button>
+                        <button className="btn btn-lg btn-primary" type="button"
+                        onClick={this.navigateToUpdatePersonagem}>Atualizar Personagem</button>
+                       
+                        <button className="btn btn-lg btn-primary" type="button">Listar Personagens</button>
                     </div>
                     <br/>
                 <header>CRUD Habilidade</header>
                     <div class="d-grid gap-2">
-                        <button class="btn btn-lg btn-primary" type="button" 
+                        <button className="btn btn-lg btn-primary" type="button" 
                         onClick={this.navigateToCreateHabilidade}>Criar Habilidade</button>
                         
-                        <button class="btn btn-lg btn-primary" type="button">Atualizar Habilidade</button>
-                        <button class="btn btn-lg btn-primary" type="button">Deletar Habilidade</button>
+                        <button className="btn btn-lg btn-primary" type="button"
+                         onClick={this.navigateToUpdateHabilidade}>Atualizar Habilidade</button>
+                        <button className="btn btn-lg btn-primary" type="button">Listar Habilidades</button>
                     </div>
             </div>
         );

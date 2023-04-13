@@ -1,18 +1,19 @@
 import React from 'react';
-import './CadastroPersonagem.css';
+import './AtualizarPersonagem.css';
 import {withRouter} from 'react-router-dom';
 import axios from 'axios';
 
-class CadastroPersonagem extends React.Component{
+class AtualizarPersonagem extends React.Component{
 
     state = {
+      id: '',
       nome: '',
       classe: '',
       hp: ''
     }
   
-    create = () => {
-      axios.post('http://localhost:8080/api/personagem',
+    update = () => {
+      axios.put(`http://localhost:8080/api/personagem/${this.state.id}`,
           {
             nome: this.state.nome,
             classe: this.state.classe,
@@ -21,7 +22,7 @@ class CadastroPersonagem extends React.Component{
       ).then(response => 
           {
             console.log(response);
-            alert("Personagem Criado")
+            alert("Personagem Atualizado")
           }
       ).catch(error =>
           {
@@ -43,9 +44,15 @@ class CadastroPersonagem extends React.Component{
   
     render() {
       return (
-        <div className="CadastroPersonagem">
+        <div className="AtualizarPersonagem">
           
-          <header>Criação de Personagem</header>
+          <header>Atualização de Personagem</header>
+
+          <div className="form-group">
+            <label className="col-form=laber mt-4" htmlFor="id">Id:</label>
+            <input type="text" className="form-control" placeholder="Id" id="id" 
+            value={this.state.id} onChange={(e)=> this.setState({id: e.target.value})}/>
+          </div>
           
           <div className="form-group">
             <label className="col-form=laber mt-4" htmlFor="nome">Nome:</label>
@@ -68,10 +75,10 @@ class CadastroPersonagem extends React.Component{
             </div>
   
           <br/>
-            <button type="submit" className="btn btn-primary" onClick={this.create}>Salvar</button>
+            <button type="submit" className="btn btn-primary" onClick={this.update}>Salvar</button>
             <button type="button" className="btn btn-primary" onClick={this.cancel}>Cancelar</button>
          </div>
       );
     }
   }
-  export default withRouter(CadastroPersonagem);
+  export default withRouter(AtualizarPersonagem);
