@@ -17,14 +17,7 @@ class CadastroHabilidade extends React.Component{
         this.props.history.push('/');
     }
     
-    mostrar=()=>{
-        console.log(this.state.nome)
-        console.log(this.state.cooldown)
-        console.log(this.state.descricao)
-        console.log(this.state.dano)
-        console.log(this.state.personagemId)
-    }
-
+    
     create = () => {
         axios.post("http://localhost:8080/api/habilidade",
             {

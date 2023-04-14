@@ -23,6 +23,19 @@ import './HomePage.css';
         this.props.history.push('/AtualizarHabilidade');
     }
 
+    navigateToGetPersonagem = () => {
+        this.props.history.push('/TabelaPersonagem');
+    }
+    
+    navigateToDeletePersonagem = () => {
+        this.props.history.push('/DeletarPersonagem');
+    }
+
+    navigateToDeleteHabilidade = () => {
+        this.props.history.push('/DeletarHabilidade');
+    }
+
+
     render(){
         return(
             <div>
@@ -34,17 +47,20 @@ import './HomePage.css';
                         <button className="btn btn-lg btn-primary" type="button"
                         onClick={this.navigateToUpdatePersonagem}>Atualizar Personagem</button>
                        
-                        <button className="btn btn-lg btn-primary" type="button">Listar Personagens</button>
+                        <button className="btn btn-lg btn-primary" type="button"
+                        onClick={this.navigateToDeletePersonagem}>Deletar Personagem</button>
                     </div>
                     <br/>
                 <header>CRUD Habilidade</header>
-                    <div class="d-grid gap-2">
+                    <div className="d-grid gap-2">
                         <button className="btn btn-lg btn-primary" type="button" 
                         onClick={this.navigateToCreateHabilidade}>Criar Habilidade</button>
                         
                         <button className="btn btn-lg btn-primary" type="button"
-                         onClick={this.navigateToUpdateHabilidade}>Atualizar Habilidade</button>
-                        <button className="btn btn-lg btn-primary" type="button">Listar Habilidades</button>
+                        onClick={this.navigateToUpdateHabilidade}>Atualizar Habilidade</button>
+                        
+                        <button className="btn btn-lg btn-primary" type="button"
+                        onClick={this.navigateToDeleteHabilidade}>Deletar Habilidade</button>
                     </div>
             </div>
         );

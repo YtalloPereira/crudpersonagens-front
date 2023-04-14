@@ -1,4 +1,4 @@
-.CadastroPersonagem, .CadastroHabilidade,.HomePage,.AtualizarHabilidade,.AtualizarPersonagem {
+.CadastroPersonagem, .CadastroHabilidade,.AtualizarHabilidade,.AtualizarPersonagem,.DeletarPersonagem,.DeletarHabilidade {
     text-align: center;
     display: flex;
     align-items: center;
