@@ -2,6 +2,7 @@ import React from 'react';
 import './AtualizarHabilidade.css';
 import {withRouter} from 'react-router-dom';
 import axios from 'axios';
+import { showSuccessMessage } from '../components/Toastr';
 
 class AtualizarHabilidade extends React.Component{
 
@@ -26,7 +27,7 @@ class AtualizarHabilidade extends React.Component{
       ).then(response => 
           {
             console.log(response);
-            alert("Habilidade Atualizada")
+            showSuccessMessage('Habilidade Atualizada')
           }
       ).catch(error =>
           {

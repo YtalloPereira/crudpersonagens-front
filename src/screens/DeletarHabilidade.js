@@ -2,6 +2,7 @@ import React from 'react';
 import './DeletarHabilidade.css';
 import {withRouter} from 'react-router-dom';
 import axios from 'axios';
+import { showSuccessMessage } from '../components/Toastr';
 
 class DeletarHabilidade extends React.Component{
 
@@ -17,7 +18,7 @@ class DeletarHabilidade extends React.Component{
         ).then(response => 
             {
               console.log(response);
-              alert("Personagem Deletado")
+              showSuccessMessage('Habilidade Deletada')
             }
         ).catch(error =>
             {

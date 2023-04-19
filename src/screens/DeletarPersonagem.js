@@ -2,6 +2,9 @@ import React from 'react';
 import './DeletarPersonagem.css';
 import {withRouter} from 'react-router-dom';
 import axios from 'axios';
+import { showSuccessMessage } from '../components/Toastr';
+import 'toastr/build/toastr.css';
+import 'toastr/build/toastr.min.js';
 
 class DeletarPersonagem extends React.Component{
 
@@ -17,7 +20,7 @@ class DeletarPersonagem extends React.Component{
         ).then(response => 
             {
               console.log(response);
-              alert("Personagem Deletado")
+              showSuccessMessage('Personagem Deletado')
             }
         ).catch(error =>
             {

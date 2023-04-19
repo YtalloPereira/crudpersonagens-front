@@ -3,6 +3,10 @@ import React from 'react';
 
 import 'bootswatch/dist/lumen/bootstrap.css'
 import './screens/Global.css';
+import 'toastr/build/toastr.css';
+import 'toastr/build/toastr.min.js';
+
+
 
 
 import AppRoutes from './main/Approutes';

@@ -3,6 +3,8 @@ import './CadastroPersonagem.css';
 import {withRouter} from 'react-router-dom';
 import axios from 'axios';
 
+import { showErrorMessage, showSuccessMessage } from '../components/Toastr';
+
 class CadastroPersonagem extends React.Component{
 
     state = {
@@ -11,7 +13,35 @@ class CadastroPersonagem extends React.Component{
       hp: ''
     }
   
+    validate = () =>{
+      const errors = [];
+
+      if(!this.state.nome){
+        errors.push('Campo nome é obrigário');
+      }
+
+      if(!this.state.classe){
+        errors.push('Campo classe é obrigário');
+      }
+
+      if(!this.state.classe){
+        errors.push('Campo Hp é obrigário');
+      }
+
+      return errors;
+    }
+
     create = () => {
+
+      const errors = this.validate();
+
+      if(errors.length > 0){
+        errors.forEach((message, index) => {
+          showErrorMessage(message);
+        });
+        return false;
+      }
+
       axios.post('http://localhost:8080/api/personagem',
           {
             nome: this.state.nome,
@@ -21,7 +51,7 @@ class CadastroPersonagem extends React.Component{
       ).then(response => 
           {
             console.log(response);
-            alert("Personagem Criado")
+            showSuccessMessage('Personagem Criado')
           }
       ).catch(error =>
           {

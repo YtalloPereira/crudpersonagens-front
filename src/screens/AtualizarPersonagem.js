@@ -2,6 +2,7 @@ import React from 'react';
 import './AtualizarPersonagem.css';
 import {withRouter} from 'react-router-dom';
 import axios from 'axios';
+import { showSuccessMessage } from '../components/Toastr';
 
 class AtualizarPersonagem extends React.Component{
 
@@ -22,7 +23,7 @@ class AtualizarPersonagem extends React.Component{
       ).then(response => 
           {
             console.log(response);
-            alert("Personagem Atualizado")
+            showSuccessMessage('Personagem Atualizado')
           }
       ).catch(error =>
           {

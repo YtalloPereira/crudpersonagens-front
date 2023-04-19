@@ -2,6 +2,7 @@ import React from "react";
 import './CadastroHabilidade.css';
 import {withRouter} from 'react-router-dom';
 import axios from "axios";
+import { showSuccessMessage } from '../components/Toastr';
 
 class CadastroHabilidade extends React.Component{
 
@@ -17,8 +18,44 @@ class CadastroHabilidade extends React.Component{
         this.props.history.push('/');
     }
     
+    validate = () =>{
+        const errors = [];
+  
+        if(!this.state.nome){
+          errors.push('Campo nome é obrigário');
+        }
+  
+        if(!this.state.cooldown){
+          errors.push('Campo cooldown é obrigário');
+        }
+  
+        if(!this.state.descricao){
+          errors.push('Campo descrição é obrigário');
+        }
+
+        if(!this.state.dano){
+            errors.push('Campo dano é obrigário');
+        }
+
+        if(!this.state.personagemId){
+            errors.push('Campo id so personagem é obrigário');
+        }
+  
+        return errors;
+      }
     
     create = () => {
+
+        const errors = this.validate();
+
+        if(errors.length > 0){
+          errors.forEach((message, index) => {
+            showErrorMessage(message);
+          });
+          return false;
+        }
+  
+
         axios.post("http://localhost:8080/api/habilidade",
             {
               nome: this.state.nome,
@@ -30,7 +67,7 @@ class CadastroHabilidade extends React.Component{
         ).then(response => 
             {
               console.log(response);
-              alert("Habilidade Criada");
+              showSuccessMessage('Habilidade Criada')
             }
         ).catch(error =>
             {
