@@ -11,8 +11,28 @@ class DeletarPersonagem extends React.Component{
     state = {
       id: '',
     }
+
+    validate = () =>{
+      const errors = [];
+
+      if(!this.state.nome){
+        errors.push('Campo id é obrigário');
+      }
+
+      return errors;
+    }
   
     delete = () => {
+
+        const errors = this.validate();
+
+        if(errors.length > 0){
+          errors.forEach((message, index) => {
+            showErrorMessage(message);
+          });
+          return false;
+        }
+
         axios.delete(`http://localhost:8080/api/personagem/${this.state.id}`,
             {
               
