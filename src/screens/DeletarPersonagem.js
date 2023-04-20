@@ -1,10 +1,10 @@
 import React from 'react';
 import './DeletarPersonagem.css';
 import {withRouter} from 'react-router-dom';
-import axios from 'axios';
 import { showSuccessMessage,showErrorMessage } from '../components/Toastr';
 import 'toastr/build/toastr.css';
 import 'toastr/build/toastr.min.js';
+import EntitiesApiService from '../services/HabilidadeApiService';
 
 class DeletarPersonagem extends React.Component{
 
@@ -12,10 +12,15 @@ class DeletarPersonagem extends React.Component{
       id: '',
     }
 
+    constructor(){
+      super();
+      this.service = new EntitiesApiService();
+    }
+
     validate = () =>{
       const errors = [];
 
-      if(!this.state.nome){
+      if(!this.state.id){
         errors.push('Campo id é obrigário');
       }
 
@@ -33,7 +38,7 @@ class DeletarPersonagem extends React.Component{
           return false;
         }
 
-        axios.delete(`http://localhost:8080/api/personagem/${this.state.id}`,
+        this.service.delete(this.state.id,
             {
               
             }

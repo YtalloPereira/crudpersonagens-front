@@ -1,8 +1,8 @@
 import React from "react";
 import './CadastroHabilidade.css';
 import {withRouter} from 'react-router-dom';
-import axios from "axios";
 import { showSuccessMessage,showErrorMessage } from '../components/Toastr';
+import EntitiesApiService from '../services/HabilidadeApiService';
 
 class CadastroHabilidade extends React.Component{
 
@@ -12,6 +12,11 @@ class CadastroHabilidade extends React.Component{
         descricao: '',
         dano: '',
         personagemId: ''
+    }
+
+    constructor(){
+      super();
+      this.service = new EntitiesApiService();
     }
 
     cancel = () =>{
@@ -56,7 +61,7 @@ class CadastroHabilidade extends React.Component{
         }
   
 
-        axios.post("http://localhost:8080/api/habilidade",
+        this.service.create(
             {
               nome: this.state.nome,
               cooldown: this.state.cooldown,

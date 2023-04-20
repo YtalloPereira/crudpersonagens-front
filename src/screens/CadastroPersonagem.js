@@ -1,7 +1,7 @@
 import React from 'react';
 import './CadastroPersonagem.css';
 import {withRouter} from 'react-router-dom';
-import axios from 'axios';
+import EntitiesApiService from '../services/PersonagemApiService';
 
 import { showErrorMessage, showSuccessMessage } from '../components/Toastr';
 
@@ -11,6 +11,11 @@ class CadastroPersonagem extends React.Component{
       nome: '',
       classe: '',
       hp: ''
+    }
+
+    constructor(){
+      super();
+      this.service = new EntitiesApiService();
     }
   
     validate = () =>{
@@ -42,7 +47,7 @@ class CadastroPersonagem extends React.Component{
         return false;
       }
 
-      axios.post('http://localhost:8080/api/personagem',
+      this.service.create(
           {
             nome: this.state.nome,
             classe: this.state.classe,
@@ -51,7 +56,7 @@ class CadastroPersonagem extends React.Component{
       ).then(response => 
           {
             console.log(response);
-            showSuccessMessage('Personagem Criado')
+            showSuccessMessage(`Personagem de nome ${this.state.nome} criado`)
           }
       ).catch(error =>
           {

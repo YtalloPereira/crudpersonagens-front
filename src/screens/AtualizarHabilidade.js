@@ -1,8 +1,8 @@
 import React from 'react';
 import './AtualizarHabilidade.css';
 import {withRouter} from 'react-router-dom';
-import axios from 'axios';
 import { showSuccessMessage } from '../components/Toastr';
+import EntitiesApiService from '../services/HabilidadeApiService';
 
 class AtualizarHabilidade extends React.Component{
 
@@ -14,9 +14,14 @@ class AtualizarHabilidade extends React.Component{
       dano: '',
       personagemId: ''
     }
+
+    constructor(){
+      super();
+      this.service = new EntitiesApiService();
+    }
   
     update = () => {
-      axios.put(`http://localhost:8080/api/habilidade/${this.state.id}`,
+      this.service.update(this.state.id,
           {
             nome: this.state.nome,
             cooldown: this.state.cooldown,

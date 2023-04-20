@@ -38,7 +38,7 @@ import './HomePage.css';
 
     render(){
         return(
-            <div>
+            <div className="HomePage">
                 <header>CRUD Personagem</header>
                     <div className="d-grid gap-2">
                         <button className="btn btn-lg btn-primary" type="button" 
