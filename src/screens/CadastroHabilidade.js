@@ -2,7 +2,7 @@ import React from "react";
 import './CadastroHabilidade.css';
 import {withRouter} from 'react-router-dom';
 import axios from "axios";
-import { showSuccessMessage } from '../components/Toastr';
+import { showSuccessMessage,showErrorMessage } from '../components/Toastr';
 
 class CadastroHabilidade extends React.Component{
 

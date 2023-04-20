@@ -24,7 +24,7 @@ export function showMessage(title, message, type){
 }
 
 export function showSuccessMessage(message){
-    showMessage('Sucesso', message, 'successs');
+    showMessage('Sucesso', message, 'success');
 }
 
 export function showErrorMessage(message){
