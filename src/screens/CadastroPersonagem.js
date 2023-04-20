@@ -24,7 +24,7 @@ class CadastroPersonagem extends React.Component{
         errors.push('Campo classe é obrigário');
       }
 
-      if(!this.state.classe){
+      if(!this.state.hp){
         errors.push('Campo Hp é obrigário');
       }
 
