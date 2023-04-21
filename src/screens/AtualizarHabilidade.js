@@ -2,7 +2,7 @@ import React from 'react';
 import './AtualizarHabilidade.css';
 import {withRouter} from 'react-router-dom';
 import { showSuccessMessage } from '../components/Toastr';
-import EntitiesApiService from '../services/HabilidadeApiService';
+import HabibilidadeApiService from '../services/HabilidadeApiService';
 
 class AtualizarHabilidade extends React.Component{
 
@@ -17,7 +17,7 @@ class AtualizarHabilidade extends React.Component{
 
     constructor(){
       super();
-      this.service = new EntitiesApiService();
+      this.service = new HabibilidadeApiService();
     }
   
     update = () => {

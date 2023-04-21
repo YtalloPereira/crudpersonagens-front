@@ -1,9 +1,8 @@
 import React from 'react';
 import './CadastroPersonagem.css';
 import {withRouter} from 'react-router-dom';
-import EntitiesApiService from '../services/PersonagemApiService';
-
 import { showErrorMessage, showSuccessMessage } from '../components/Toastr';
+import PersonagemApiService from '../services/PersonagemApiService';
 
 class CadastroPersonagem extends React.Component{
 
@@ -15,7 +14,7 @@ class CadastroPersonagem extends React.Component{
 
     constructor(){
       super();
-      this.service = new EntitiesApiService();
+      this.service = new PersonagemApiService();
     }
   
     validate = () =>{

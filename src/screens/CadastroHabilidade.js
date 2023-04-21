@@ -2,7 +2,7 @@ import React from "react";
 import './CadastroHabilidade.css';
 import {withRouter} from 'react-router-dom';
 import { showSuccessMessage,showErrorMessage } from '../components/Toastr';
-import EntitiesApiService from '../services/HabilidadeApiService';
+import HabibilidadeApiService from '../services/HabilidadeApiService';
 
 class CadastroHabilidade extends React.Component{
 
@@ -16,7 +16,7 @@ class CadastroHabilidade extends React.Component{
 
     constructor(){
       super();
-      this.service = new EntitiesApiService();
+      this.service = new HabibilidadeApiService ();
     }
 
     cancel = () =>{

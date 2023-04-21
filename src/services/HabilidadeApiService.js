@@ -1,6 +1,6 @@
 import ApiService from "./ApiService";
 
-export default class EntitiesApiService extends ApiService{
+export default class HabilidadeApiService extends ApiService{
 
     constructor(){
         super('/habilidade');

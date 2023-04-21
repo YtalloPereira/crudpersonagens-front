@@ -2,7 +2,7 @@ import React from 'react';
 import './AtualizarPersonagem.css';
 import {withRouter} from 'react-router-dom';
 import { showSuccessMessage } from '../components/Toastr';
-import EntitiesApiService from '../services/HabilidadeApiService';
+import PersonagemApiService from '../services/PersonagemApiService';
 
 class AtualizarPersonagem extends React.Component{
 
@@ -15,7 +15,7 @@ class AtualizarPersonagem extends React.Component{
 
     constructor(){
       super();
-      this.service = new EntitiesApiService();
+      this.service = new PersonagemApiService();
     }
   
     update = () => {

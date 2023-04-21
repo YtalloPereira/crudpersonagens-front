@@ -1,9 +1,8 @@
 import React from 'react';
 import './DeletarHabilidade.css';
 import {withRouter} from 'react-router-dom';
-import axios from 'axios';
 import { showSuccessMessage , showErrorMessage } from '../components/Toastr';
-import EntitiesApiService from '../services/HabilidadeApiService';
+import HabilidadeApiService from '../services/HabilidadeApiService';
 
 class DeletarHabilidade extends React.Component{
 
@@ -13,7 +12,7 @@ class DeletarHabilidade extends React.Component{
 
     constructor(){
       super();
-      this.service = new EntitiesApiService();
+      this.service = new HabilidadeApiService();
     }
   
     validate = () =>{
