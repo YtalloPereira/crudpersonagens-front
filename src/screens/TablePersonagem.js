@@ -1,7 +1,10 @@
 import React from "react";
 import {withRouter} from 'react-router-dom'
-import PersonagemTable from '../components/PersonagemTable'
-import axios from "axios";
+import {showSuccessMessage } from '../components/Toastr';
+import PersonagemApiService from '../services/PersonagemApiService';
+import PersonagensTable from "../components/PersonagensTable";
+import Card from '../components/Card';
+
 
 class TablePersonagem extends React.Component{
 
@@ -9,18 +12,23 @@ class TablePersonagem extends React.Component{
         id: '',
         nome: '',
         classe: '',
+        hp:'',
         personagens: []
     }
+
+    constructor(){
+        super();
+        this.service = new PersonagemApiService();
+      }
+    
     
     delete = (personagemId) => {
-        axios.delete(`http://localhost:8080/api/personagem/${personagemId}`,
-            {
-              
-            }
+        this.service.delete(personagemId
         ).then(response => 
             {
               console.log(response);
-              alert("Personagem Deletado")
+              this.find()
+              showSuccessMessage('Personagem Excluido');
             }
         ).catch(error =>
             {
@@ -30,38 +38,8 @@ class TablePersonagem extends React.Component{
   
       }
 
-      achar = () =>{
-        var params = '?';
-
-        if(this.state.id != ''){
-            if(params != '?'){
-                params = `${params}&`;
-            }
-            params = `${params}id=${this.state.id}`;
-        }
-
-        if(this.state.nome != ''){
-            if(params != '?'){
-                params = `${params}&`;
-            }
-            params = `${params}id=${this.state.nome}`;
-        }
-
-        if(this.state.classe != ''){
-            if(params != '?'){
-                params = `${params}&`;
-            }
-            params = `${params}id=${this.state.classe}`;
-        }
-
-        if(this.state.hp != ''){
-            if(params != '?'){
-                params = `${params}&`;
-            }
-            params = `${params}id=${this.state.hp}`;
-        }
-
-        axios.get(`http://localhost:8080/api/personagem/`,
+      find = () =>{
+        this.service.get(
         ).then(response => 
             {   
                 const personagens = response.data;
@@ -75,15 +53,31 @@ class TablePersonagem extends React.Component{
         );
     }
 
+    mostrar =() =>{
+        console.log(this.state.personagens)
+    }
 
     render(){
         return(
-            <div className="bs-Component">
-                <header>Listagem de Personagem</header>
-                <PersonagemTable>
-                    personagens = {this.state.personagens}
-                    delete = {this.delete}
-                </PersonagemTable>
+            <div>
+                <Card title="Lista de Personagens">
+                    
+                    
+                    <button onClick={this.find} type="button" className="btn btn-success">Buscar
+                        <i className="pi pi-search"></i>
+                    </button>
+                    <div className="row" >
+                        <div className="col-md-12">
+                            <div className="bs-component" >
+                                <br />
+                                <PersonagensTable personagens={this.state.personagens}
+                                    delete={this.delete}
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                </Card>
             </div>
         )
     }

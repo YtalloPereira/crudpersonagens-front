@@ -35,6 +35,10 @@ import './HomePage.css';
         this.props.history.push('/DeletarHabilidade');
     }
 
+    navigateToListarPersonagem = () => {
+        this.props.history.push('/ListarPersonagem');
+    }
+
 
     render(){
         return(
@@ -49,6 +53,9 @@ import './HomePage.css';
                        
                         <button className="btn btn-lg btn-primary" type="button"
                         onClick={this.navigateToDeletePersonagem}>Deletar Personagem</button>
+
+                        <button className="btn btn-lg btn-primary" type="button"
+                        onClick={this.navigateToListarPersonagem}>Listar Personagens</button>
                     </div>
                     <br/>
                 <header>CRUD Habilidade</header>

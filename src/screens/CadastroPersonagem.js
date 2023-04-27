@@ -69,12 +69,6 @@ class CadastroPersonagem extends React.Component{
       this.props.history.push('/');
     }
 
-    mostrar=()=>{
-      console.log(this.state.nome)
-      console.log(this.state.classe)
-      console.log(this.state.hp)
-    }
-  
     render() {
       return (
         <div className="CadastroPersonagem">

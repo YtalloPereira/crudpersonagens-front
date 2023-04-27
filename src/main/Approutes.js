@@ -7,6 +7,7 @@ import AtualizarPersonagem from "../screens/AtualizarPersonagem";
 import AtualizarHabilidade from "../screens/AtualizarHabilidade";
 import DeletarPersonagem from "../screens/DeletarPersonagem";
 import DeletarHabilidade from "../screens/DeletarHabilidade";
+import TablePersonagem from "../screens/TablePersonagem";
 
 function AppRoutes(){
     return(
@@ -18,6 +19,7 @@ function AppRoutes(){
             <Route component = {AtualizarHabilidade} path = "/AtualizarHabilidade" />
             <Route component = {DeletarPersonagem} path = "/DeletarPersonagem" />
             <Route component = {DeletarHabilidade} path = "/DeletarHabilidade" />
+            <Route component = {TablePersonagem} path = "/ListarPersonagens" />
         </BrowserRouter>
     );
 }
